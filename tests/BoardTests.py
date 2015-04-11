@@ -20,14 +20,16 @@ class testCreateEmptyBoard(unittest.TestCase):
 
 class testPlaceBomb(unittest.TestCase):
     def testPlaceBomb(self):
-        expected_board = [[0, -1], [0, 0]]
+        expected_board = [[1, -1], [1, 1]]
+        print "In place bomb"
         test_board = Board(2,2)
-        test_board.place_bomb(1, 0)
+        test_board.place_bomb(0, 1)
+        print test_board.board
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
 
     def testPlaceMultipleBombs(self):
-        expected_board = [[0, -1], [-1, 0]]
+        expected_board = [[2, -1], [-1, 2]]
         test_board = Board(2,2)
         test_board.place_bomb(1, 0)
         test_board.place_bomb(0, 1)
@@ -38,7 +40,7 @@ class testScatterBombs(unittest.TestCase):
     def testNormalScatter(self):
         # Fake out the random number generator
         random.seed(0xDEADBEEF)
-        expected_board = [[-1,0],[0,0]]
+        expected_board = [[-1,1],[1,1]]
         test_board = Board(2,2)
         test_board.scatter_bombs(1, rand=random.random)
         observed_board = test_board.board
@@ -49,7 +51,7 @@ class testScatterBombs(unittest.TestCase):
     # and pick a new spot to place a bomb in
     def testDuplicateSpotScatter(self):
         random.seed(3)
-        expected_board = [[0,-1],[-1,0]]
+        expected_board = [[2,-1],[-1,2]]
         test_board = Board(2,2)
         test_board.scatter_bombs(2, rand=random.random)
         observed_board = test_board.board

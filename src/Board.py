@@ -16,32 +16,22 @@ class Board:
         self.trackboard = self.create_empty_board(x, y, value=False)
 
     def sum_surrounding(self, x, y):
-        if x > 0 and self.board[y][x-1] != -1:
-            self.board[x-1][y] += 1
-        if x + 1 < self.x_dimension and self.board[y][x+1] != -1:
-            self.board[x+1][y] += 1
-        if y > 0 and self.board[y-1][x] != -1:
-            self.board[x][y-1] += 1
-        if y + 1< self.y_dimension and self.board[y+1][x] != -1:
-            self.board[x][y+1] += 1
-
-        if x > 0 and y > 0 and self.board[y-1][x-1] != -1:
-            self.board[x-1][y-1] += 1
-        if x > 0 and y + 1 < self.y_dimension and self.board[y+1][x-1] != -1:
-            self.board[x-1][y+1] += 1
-        if x + 1 < self.x_dimension and y + 1 < self.y_dimension and self.board[y+1][x+1] != -1:
-            self.board[x+1][y+1] += 1
-        if x + 1 < self.x_dimension and y > 0 and self.board[y-1][x+1] != -1:
-            self.board[x+1][y-1] += 1
+        for i in range(-1, 2):
+            if (x + i >= 0 and x + i < self.x_dimension):
+                for k in range(-1, 2):
+                    if (y + k >= 0 and y + k < self.y_dimension and self.board[x+i][y+k] != -1):
+                        if not (i == 0 and k == 0):
+                            self.board[x+i][y+k] += 1
 
     def place_bomb(self, x, y):
-        self.board[y][x] = -1
+        self.board[x][y] = -1
+        self.sum_surrounding(x,y)
 
     def scatter_bombs(self, quantity, rand=random.random):
         while quantity > 0:
             place_x = int(rand() * self.x_dimension)
             place_y = int(rand() * self.y_dimension)
-            if self.board[place_y][place_x] == 0:
+            if self.board[place_x][place_y] != -1:
                 self.place_bomb(place_x, place_y)
                 quantity -= 1
 
