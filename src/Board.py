@@ -1,4 +1,4 @@
 class Board:
     @staticmethod
     def create_empty_board(x, y):
-        return []
+        return [[0] *10] *10
