@@ -99,5 +99,17 @@ class testSumSurrounding(unittest.TestCase):
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
 
+class testToString(unittest.TestCase):
+    def testNoReveal(self):
+        expected_board = "    0 1 2 3 4\n" +  \
+                         "0: | | | | | |\n" + \
+                         "1: | | | | | |\n" + \
+                         "2: | | | | | |\n" + \
+                         "3: | | | | | |\n" + \
+                         "4: | | | | | |"
+        test_board = Board(5,5)
+        observed_board = str(test_board)
+        self.assertEqual(expected_board, observed_board)
+
 if __name__ == "__main__":
     unittest.main()

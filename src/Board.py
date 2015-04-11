@@ -51,3 +51,6 @@ class Board:
             self.reveal_location(x, y+1)
             self.reveal_location(x+1, y-1)
             self.reveal_location(x-1, y+1)
+
+    def __str__(self):
+        return ""
