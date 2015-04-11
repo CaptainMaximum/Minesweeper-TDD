@@ -9,10 +9,15 @@ class Board:
         return new_board
 
     def __init__(self, x, y):
+        self.x_dimension = x
+        self.y_dimension = y
         self.board = self.create_empty_board(x, y)
 
     def place_bomb(self, x, y):
         self.board[y][x] = -1
 
     def scatter_bombs(self, quantity, rand=random.random):
-        pass
+        for i in range(0, quantity):
+            place_x = int(rand() * self.x_dimension)
+            place_y = int(rand() * self.y_dimension)
+            self.place_bomb(place_x, place_y)
