@@ -70,7 +70,7 @@ class testRevealLocation(unittest.TestCase):
         expected_board = [[True, True, False], [True, True, False], 
             [False, False, False]]
         test_board = Board(3,3)
-        test_board.board = [[0,0,-1], [0,0,-1], [-1,-1,-1]]
+        test_board.board = [[0, 0, -1], [0, 0, -1], [-1, -1, -1]]
         test_board.reveal_location(0,0)
         observed_board = test_board.trackboard
         self.assertEqual(expected_board, observed_board)
@@ -80,6 +80,14 @@ class testSumSurrounding(unittest.TestCase):
         expected_board = [[1,1,1],[1,-1,1],[1,1,1]]
         test_board = Board(3,3)
         test_board.sum_surrounding(1,1)
+        observed_board = test_board.board
+        self.assertEqual(expected_board, observed_board)
+
+    def testCollidingSums(self):
+        expected_board = [[-1, 2, -1], [1, 2, 1], [0, 0, 0]]
+        test_board = Board(3,3)
+        test_board.sum_surrounding(0,0)
+        test_board.sum_surrounding(0,2)
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
 
