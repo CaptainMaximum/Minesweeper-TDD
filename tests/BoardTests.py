@@ -25,5 +25,13 @@ class testPlaceBomb(unittest.TestCase):
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
 
+    def testPlaceMultipleBombs(self):
+        expected_board = [[0, -1], [-1, 0]]
+        test_board = Board(2,2)
+        test_board.place_bomb(1, 0)
+        test_board.place_bomb(0, 1)
+        observed_board = test_board.board
+        self.assertEqual(expected_board, observed_board)
+
 if __name__ == "__main__":
     unittest.main()
