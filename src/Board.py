@@ -17,7 +17,10 @@ class Board:
         self.board[y][x] = -1
 
     def scatter_bombs(self, quantity, rand=random.random):
-        for i in range(0, quantity):
+        while quantity > 0:
             place_x = int(rand() * self.x_dimension)
             place_y = int(rand() * self.y_dimension)
-            self.place_bomb(place_x, place_y)
+            if self.board[place_y][place_x] == 0:
+                self.place_bomb(place_x, place_y)
+                quantity -= 1
+
