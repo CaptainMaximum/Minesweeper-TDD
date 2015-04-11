@@ -66,5 +66,14 @@ class testRevealLocation(unittest.TestCase):
         observed_board = test_board.trackboard
         self.assertEqual(expected_board, observed_board)
 
+    def testMultiCellReveal(self):
+        expected_board = [[True, True, False], [True, True, False], 
+            [False, False, False]]
+        test_board = Board(3,3)
+        test_board.board = [[0,0,-1], [0,0,-1], [-1,-1,-1]]
+        test_board.reveal_location(0,0)
+        observed_board = test_board.trackboard
+        self.assertEqual(expected_board, observed_board)
+
 if __name__ == "__main__":
     unittest.main()
