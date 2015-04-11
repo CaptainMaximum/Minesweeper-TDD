@@ -17,5 +17,13 @@ class testCreateEmptyBoard(unittest.TestCase):
         observed_board = Board.create_empty_board(3, 4)
         self.assertEqual(expected_board, observed_board)
 
+class testPlaceBomb(unittest.TestCase):
+    def testPlaceBomb(self):
+        expected_board = [[0, -1], [0, 0]]
+        test_board = Board(2,2)
+        test_board.place_bomb(1, 0)
+        observed_board = test_board.board
+        self.assertEqual(expected_board, observed_board)
+
 if __name__ == "__main__":
     unittest.main()
