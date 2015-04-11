@@ -44,6 +44,17 @@ class testScatterBombs(unittest.TestCase):
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
 
+    # Tests a scatter that should generate the same spot to place a bomb on.
+    # What we want in this case is for scatter_bombs to skip over that position
+    # and pick a new spot to place a bomb in
+    def testDuplicateSpotScatter(self):
+        random.seed(3)
+        expected_board = [[0,-1],[-1,0]]
+        test_board = Board(2,2)
+        test_board.scatter_bombs(2, rand=random.random)
+        observed_board = test_board.board
+        self.assertEqual(expected_board, observed_board)
+
 
 if __name__ == "__main__":
     unittest.main()
