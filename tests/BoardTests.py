@@ -55,6 +55,16 @@ class testScatterBombs(unittest.TestCase):
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
 
+class testRevealLocation(unittest.TestCase):
+    def testSingleCellReveal(self):
+        random.seed(0xDEADBEEF)
+        expected_board = [[False, False], [True, False]]
+        # board generated: [[-1,0], [0,0]]
+        test_board = Board(2,2)
+        test_board.scatter_bombs(1, rand=random.random)
+        test_board.reveal_location(1,0)
+        observed_board = test_board.trackboard
+        self.assertEqual(expected_board, observed_board)
 
 if __name__ == "__main__":
     unittest.main()
