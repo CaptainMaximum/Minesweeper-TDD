@@ -102,11 +102,11 @@ class testSumSurrounding(unittest.TestCase):
 class testToString(unittest.TestCase):
     def testNoReveal(self):
         expected_board = "    0 1 2 3 4\n" +  \
-                         "0: | | | | | |\n" + \
-                         "1: | | | | | |\n" + \
-                         "2: | | | | | |\n" + \
-                         "3: | | | | | |\n" + \
-                         "4: | | | | | |"
+                         "0: |_|_|_|_|_|\n" + \
+                         "1: |_|_|_|_|_|\n" + \
+                         "2: |_|_|_|_|_|\n" + \
+                         "3: |_|_|_|_|_|\n" + \
+                         "4: |_|_|_|_|_|"
         test_board = Board(5,5)
         observed_board = str(test_board)
         self.assertEqual(expected_board, observed_board)
