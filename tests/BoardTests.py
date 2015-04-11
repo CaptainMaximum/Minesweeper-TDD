@@ -75,13 +75,13 @@ class testRevealLocation(unittest.TestCase):
         test_board.reveal_location(0,0)
         observed_board = test_board.trackboard
         self.assertEqual(expected_board, observed_board)
-        
+
     def testFullBoardReveal(self):
         expected_board = [[True]*10]*10
         test_board = Board(10, 10)
         test_board.reveal_location(0,0)
         observed_board = test_board.trackboard
-        assertEqual(expected_board, observed_board)
+        self.assertEqual(expected_board, observed_board)
 
 class testSumSurrounding(unittest.TestCase):
     def testLoneCell(self):
