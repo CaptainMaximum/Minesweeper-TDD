@@ -15,7 +15,11 @@ class Board:
         # trackboard keeps track of what cells have been revealed so far
         self.trackboard = self.create_empty_board(x, y, value=False)
 
+    def sum_surrounding(self, x, y):
+        pass
+
     def place_bomb(self, x, y):
+        self.sum_surrounding(x, y)
         self.board[y][x] = -1
 
     def scatter_bombs(self, quantity, rand=random.random):
