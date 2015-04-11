@@ -53,4 +53,11 @@ class Board:
             self.reveal_location(x-1, y+1)
 
     def __str__(self):
-        return ""
+        board_string = "   "
+        for i in range(0, self.x_dimension):
+            board_string += " %d" % i
+        for i in range(0, self.y_dimension):
+            board_string += "\n%d: |" % i
+            for j in range(0, self.x_dimension):
+                board_string += " |"
+        return board_string
