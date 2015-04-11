@@ -21,10 +21,8 @@ class testCreateEmptyBoard(unittest.TestCase):
 class testPlaceBomb(unittest.TestCase):
     def testPlaceBomb(self):
         expected_board = [[1, -1], [1, 1]]
-        print "In place bomb"
         test_board = Board(2,2)
         test_board.place_bomb(0, 1)
-        print test_board.board
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
 
@@ -69,10 +67,11 @@ class testRevealLocation(unittest.TestCase):
         self.assertEqual(expected_board, observed_board)
 
     def testMultiCellReveal(self):
+        random.seed(6702)
         expected_board = [[True, True, False], [True, True, False], 
             [False, False, False]]
         test_board = Board(3,3)
-        test_board.board = [[0, 0, -1], [0, 0, -1], [-1, -1, -1]]
+        test_board.scatter_bombs(4, random.random)
         test_board.reveal_location(0,0)
         observed_board = test_board.trackboard
         self.assertEqual(expected_board, observed_board)

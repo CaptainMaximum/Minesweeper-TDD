@@ -36,4 +36,18 @@ class Board:
                 quantity -= 1
 
     def reveal_location(self, x, y):
+        if self.trackboard[x][y] or x < 0 or x >= self.x_dimension or \
+            y < 0 or y > self.y_dimension:
+            return
         self.trackboard[x][y] = True
+        if self.board[x][y] == -1:
+            return
+        if self.board[x][y] == 0:
+            self.reveal_location(x-1, y)
+            self.reveal_location(x+1, y)
+            self.reveal_location(x-1, y-1)
+            self.reveal_location(x+1, y+1)
+            self.reveal_location(x, y-1)
+            self.reveal_location(x, y+1)
+            self.reveal_location(x+1, y-1)
+            self.reveal_location(x-1, y+1)
