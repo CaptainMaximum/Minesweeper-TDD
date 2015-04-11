@@ -77,7 +77,7 @@ class testRevealLocation(unittest.TestCase):
 
 class testSumSurrounding(unittest.TestCase):
     def testLoneCell(self):
-        expected_board = [[1,1,1],[1,0,1],[1,1,1]]
+        expected_board = [[1,1,1],[1,-1,1],[1,1,1]]
         test_board = Board(3,3)
         test_board.sum_surrounding(1,1)
         observed_board = test_board.board

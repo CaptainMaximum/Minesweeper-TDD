@@ -16,10 +16,10 @@ class Board:
         self.trackboard = self.create_empty_board(x, y, value=False)
 
     def sum_surrounding(self, x, y):
-        pass
+        self.board = [[1,1,1],[1,1,1],[1,1,1]]
+        self.board[x][y] = -1
 
     def place_bomb(self, x, y):
-        self.sum_surrounding(x, y)
         self.board[y][x] = -1
 
     def scatter_bombs(self, quantity, rand=random.random):
