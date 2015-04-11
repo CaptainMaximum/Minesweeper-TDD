@@ -77,14 +77,14 @@ class testRevealLocation(unittest.TestCase):
 
 class testSumSurrounding(unittest.TestCase):
     def testLoneCell(self):
-        expected_board = [[1,1,1],[1,-1,1],[1,1,1]]
+        expected_board = [[1,1,1],[1,0,1],[1,1,1]]
         test_board = Board(3,3)
         test_board.sum_surrounding(1,1)
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
 
     def testCollidingSums(self):
-        expected_board = [[-1, 2, -1], [1, 2, 1], [0, 0, 0]]
+        expected_board = [[0, 2, 0], [1, 2, 1], [0, 0, 0]]
         test_board = Board(3,3)
         test_board.sum_surrounding(0,0)
         test_board.sum_surrounding(0,2)

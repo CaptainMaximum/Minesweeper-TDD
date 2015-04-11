@@ -16,8 +16,23 @@ class Board:
         self.trackboard = self.create_empty_board(x, y, value=False)
 
     def sum_surrounding(self, x, y):
-        self.board = [[1,1,1],[1,1,1],[1,1,1]]
-        self.board[x][y] = -1
+        if x > 0 and self.board[y][x-1] != -1:
+            self.board[x-1][y] += 1
+        if x + 1 < self.x_dimension and self.board[y][x+1] != -1:
+            self.board[x+1][y] += 1
+        if y > 0 and self.board[y-1][x] != -1:
+            self.board[x][y-1] += 1
+        if y + 1< self.y_dimension and self.board[y+1][x] != -1:
+            self.board[x][y+1] += 1
+
+        if x > 0 and y > 0 and self.board[y-1][x-1] != -1:
+            self.board[x-1][y-1] += 1
+        if x > 0 and y + 1 < self.y_dimension and self.board[y+1][x-1] != -1:
+            self.board[x-1][y+1] += 1
+        if x + 1 < self.x_dimension and y + 1 < self.y_dimension and self.board[y+1][x+1] != -1:
+            self.board[x+1][y+1] += 1
+        if x + 1 < self.x_dimension and y > 0 and self.board[y-1][x+1] != -1:
+            self.board[x+1][y-1] += 1
 
     def place_bomb(self, x, y):
         self.board[y][x] = -1
