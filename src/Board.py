@@ -27,4 +27,4 @@ class Board:
                 quantity -= 1
 
     def reveal_location(self, x, y):
-        pass
+        self.trackboard[x][y] = True
