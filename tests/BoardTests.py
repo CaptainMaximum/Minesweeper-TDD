@@ -1,4 +1,5 @@
 import unittest
+import random
 from src.Board import Board
 
 class testCreateEmptyBoard(unittest.TestCase):
@@ -32,6 +33,17 @@ class testPlaceBomb(unittest.TestCase):
         test_board.place_bomb(0, 1)
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
+
+class testScatterBombs(unittest.TestCase):
+    def testNormalScatter(self):
+        # Fake out the random number generator
+        random.seed(0xDEADBEEF)
+        expected_board = [[-1,0],[0,0]]
+        test_board = Board(2,2)
+        test_board.scatter_bombs(1, rand=random.random)
+        observed_board = test_board.board
+        self.assertEqual(expected_board, observed_board)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,3 +1,5 @@
+import random
+
 class Board:
     @staticmethod
     def create_empty_board(x, y):
@@ -11,3 +13,6 @@ class Board:
 
     def place_bomb(self, x, y):
         self.board[y][x] = -1
+
+    def scatter_bombs(self, quantity, rand=random.random):
+        pass
