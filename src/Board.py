@@ -59,5 +59,5 @@ class Board:
         for i in range(0, self.y_dimension):
             board_string += "\n%d: |" % i
             for j in range(0, self.x_dimension):
-                board_string += " |"
+                board_string += "_|"
         return board_string
