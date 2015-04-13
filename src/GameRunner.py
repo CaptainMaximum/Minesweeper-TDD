@@ -7,7 +7,10 @@ def get_board_params(args=sys.argv):
         return (None, None, None)
     arg1, arg2, arg3 = args[1:4]
     try:
-        return (int(arg1), int(arg2), int(arg3))
+        return_value = (int(arg1), int(arg2), int(arg3))
+        if any(map(lambda x: x <= 0, return_value)):
+            return (None, None, None)
+        return return_value
     except ValueError:
         return (None, None, None)
 
