@@ -4,9 +4,7 @@ from src.Game import Game
 def get_board_params(args=sys.argv):
     if len(args) != 4:
         return None
-    arg1 = args[1]
-    arg2 = args[2]
-    arg3 = args[3]
+    arg1, arg2, arg3 = args[1:4]
     return (int(arg1), int(arg2), int(arg3))
 
 if __name__ == "__main__":
