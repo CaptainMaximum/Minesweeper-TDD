@@ -125,5 +125,19 @@ class testToString(unittest.TestCase):
         test_board.reveal_location(3, 0)
         observed_board = str(test_board)
         self.assertEqual(expected_board, observed_board)
+
+    def testEmptyCellReveal(self):
+        random.seed(0xDEADBEEF)
+        expected_board = "    0 1 2 3 4\n" +  \
+                         "0: |_|_|_|1| |\n" + \
+                         "1: |_|_|_|2| |\n" + \
+                         "2: |_|_|_|3|2|\n" + \
+                         "3: |_|_|_|_|_|\n" + \
+                         "4: |_|_|_|_|_|"
+        test_board = Board(5,5)
+        test_board.scatter_bombs(5, rand=random.random)
+        test_board.reveal_location(4,0)
+        observed_board = str(test_board)
+        self.assertEqual(expected_board, observed_board)
 if __name__ == "__main__":
     unittest.main()
