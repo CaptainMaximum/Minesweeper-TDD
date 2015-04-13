@@ -46,4 +46,4 @@ class Game:
                 self.make_move(coords[0], coords[1])
             else:
                 print "Invalid input: %s" % move
-        return True
+        return self.is_win()
