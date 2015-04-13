@@ -69,6 +69,15 @@ class testMakeMove(unittest.TestCase):
         observed_value = game.hidden_cells
         self.assertEqual(expected_value, observed_value)
 
+    def testMoveBombReveal(self):
+        random.seed(0xDEADBEEF)
+        game = Game(5, 5, 5, testing=True)
+        game.create_board(5, 5, 5, rand_func=random.random)
+        expected_value = -1
+        game.make_move(2, 0)
+        observed_value = game.hidden_cells
+        self.assertEqual(expected_value, observed_value)
+
 
 if __name__ == "__main__":
     unittest.main()
