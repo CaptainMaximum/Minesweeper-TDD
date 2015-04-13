@@ -11,6 +11,7 @@ if __name__ == "__main__":
     x, y, bombs = get_board_params()
     game = Game(x, y, bombs)
     victory_status = game.run()
+    print game.board
     if victory_status:
         print "You win!"
     else:
