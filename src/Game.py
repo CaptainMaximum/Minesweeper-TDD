@@ -15,4 +15,4 @@ class Game:
         self.board.scatter_bombs(bombs, rand=rand_func)
 
     def is_win(self):
-        return False
+        return self.hidden_cells <= self.total_bombs
