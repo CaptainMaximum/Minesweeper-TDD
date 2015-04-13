@@ -139,5 +139,6 @@ class testToString(unittest.TestCase):
         test_board.reveal_location(4,0)
         observed_board = str(test_board)
         self.assertEqual(expected_board, observed_board)
+        
 if __name__ == "__main__":
     unittest.main()
