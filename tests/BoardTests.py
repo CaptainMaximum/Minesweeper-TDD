@@ -106,6 +106,15 @@ class testRevealLocationCounter(unittest.TestCase):
         observed_value = test_board.reveal_location(4,0)
         self.assertEqual(expected_value, observed_value)
 
+    def testBombReveal(self):
+        random.seed(0xDEADBEEF)
+        expected_value = -1
+        test_board = Board(5, 5)
+        test_board.scatter_bombs(5, rand=random.random)
+        observed_value = test_board.reveal_location(2, 0)
+        self.assertEqual(expected_value, observed_value)
+
+
 class testSumSurrounding(unittest.TestCase):
     def testLoneCell(self):
         expected_board = [[1,1,1],[1,0,1],[1,1,1]]
