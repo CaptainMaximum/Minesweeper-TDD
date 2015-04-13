@@ -121,6 +121,13 @@ class testParseMove(unittest.TestCase):
         observed_value = game.parse_move("20 -1")
         self.assertEqual(expected_value, observed_value)
 
+class testRun(unittest.TestCase):
+    def testRunWin(self):
+        game = Game(5, 5, 5, testing=True)
+        game.hidden_cells = 5
+        expected_value = True
+        observed_value = game.run()
+        self.assertEqual(expected_value, observed_value)
 
 
 if __name__ == "__main__":

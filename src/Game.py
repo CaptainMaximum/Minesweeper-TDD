@@ -36,3 +36,6 @@ class Game:
             except ValueError:
                 return None
         return None
+
+    def run(self):
+        pass
