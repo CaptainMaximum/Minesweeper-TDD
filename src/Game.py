@@ -38,4 +38,12 @@ class Game:
         return None
 
     def run(self):
-        pass
+        while not (self.is_win() or self.is_lose()):
+            print self.board
+            move = raw_input("Your move (x y): ")
+            coords = self.parse_move(move)
+            if coords:
+                self.make_move(coords[0], coords[1])
+            else:
+                print "Invalid input: %s" % move
+        return True
