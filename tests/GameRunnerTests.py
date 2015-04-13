@@ -17,6 +17,11 @@ class testGetBoardParams(unittest.TestCase):
         observed_value = get_board_params(args=["GameRunner.py", "Not", "a", "number"])
         self.assertEqual(expected_value, observed_value)
 
+    def testGetBoardParamsTooFewInputs(self):
+        expected_value = None
+        observed_value = get_board_params(args=["GameRunner.py"])
+        self.assertEqual(expected_value, observed_value)
+
 
 if __name__ == "__main__":
     unittest.main()
