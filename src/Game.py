@@ -21,4 +21,4 @@ class Game:
         return self.hidden_cells < 0
 
     def make_move(self, x, y):
-        pass
+        self.hidden_cells = self.board.reveal_location(x, y)
