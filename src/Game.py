@@ -16,3 +16,6 @@ class Game:
 
     def is_win(self):
         return 0 <= self.hidden_cells <= self.total_bombs 
+
+    def is_lose(self):
+        pass
