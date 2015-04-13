@@ -129,6 +129,13 @@ class testRun(unittest.TestCase):
         observed_value = game.run()
         self.assertEqual(expected_value, observed_value)
 
+    def testRunLose(self):
+        game = Game(5, 5, 5, testing=True)
+        game.hidden_cells = -1
+        expected_value = False
+        observed_value = game.run()
+        self.assertEqual(expected_value, observed_value)
+
 
 if __name__ == "__main__":
     unittest.main()
