@@ -27,4 +27,7 @@ class Game:
     def parse_move(self, move_string):
         move_string = move_string.strip("\n\r\t ")
         split_input = re.split("\s+", move_string)
-        return (int(split_input[0]), int(split_input[1]))
+        if len(split_input) < 2:
+            return None
+        else:
+            return (int(split_input[0]), int(split_input[1]))
