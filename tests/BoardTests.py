@@ -58,7 +58,7 @@ class testScatterBombs(unittest.TestCase):
 class testRevealLocation(unittest.TestCase):
     def testSingleCellReveal(self):
         random.seed(0xDEADBEEF)
-        expected_board = [[False, False], [True, False]]
+        expected_board = [[False, True], [False, False]]
         # board generated: [[-1,0], [0,0]]
         test_board = Board(2,2)
         test_board.scatter_bombs(1, rand=random.random)

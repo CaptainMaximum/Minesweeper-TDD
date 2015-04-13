@@ -37,12 +37,12 @@ class Board:
 
     def reveal_location(self, x, y):
         if x < 0 or x >= self.x_dimension or y < 0 or   \
-            y >= self.y_dimension or self.trackboard[x][y]:
+            y >= self.y_dimension or self.trackboard[y][x]:
             return
-        self.trackboard[x][y] = True
-        if self.board[x][y] == -1:
+        self.trackboard[y][x] = True
+        if self.board[y][x] == -1:
             return
-        if self.board[x][y] == 0:
+        if self.board[y][x] == 0:
             self.reveal_location(x-1, y)
             self.reveal_location(x+1, y)
             self.reveal_location(x-1, y-1)
@@ -59,5 +59,9 @@ class Board:
         for i in range(0, self.y_dimension):
             board_string += "\n%d: |" % i
             for j in range(0, self.x_dimension):
-                board_string += "_|"
+                if self.trackboard[i][j]:
+                    board_string += str(self.board[i][j])
+                else:
+                    board_string += "_"
+                board_string += "|"
         return board_string
