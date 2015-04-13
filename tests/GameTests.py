@@ -2,6 +2,7 @@ import unittest
 import random
 from src.Game import Game
 from src.Board import Board
+from src.Exceptions import InvalidBoardException
 
 class testCreateBoard(unittest.TestCase):
     def testCreate(self):
@@ -14,6 +15,13 @@ class testCreateBoard(unittest.TestCase):
         expected_board = compare_board.board
         observed_board = game.board.board
         self.assertEqual(expected_board, observed_board)
+
+    def testCreateTooManyBombs(self):
+        # dummy_game is needed here because Game.__init__ needs an instance of
+        # 'Game' passed in as the first argument
+        dummy_game = Game(5, 5, 0, testing=True)
+        self.assertRaises(InvalidBoardException, Game.__init__, *[dummy_game, 2, 2, 5, True])
+
 
 class testWinSituation(unittest.TestCase):
     def testNotWin(self):
