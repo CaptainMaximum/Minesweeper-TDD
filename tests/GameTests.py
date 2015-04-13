@@ -16,7 +16,7 @@ class testCreateBoard(unittest.TestCase):
         self.assertEqual(expected_board, observed_board)
 
 class testWinSituation(unittest.TestCase):
-    def testWin(self):
+    def testNotWin(self):
         game = Game(5, 5, 5, testing=True)
         expected_value = False
         observed_value = game.is_win()
