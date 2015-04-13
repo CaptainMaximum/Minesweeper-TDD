@@ -19,3 +19,6 @@ class Game:
 
     def is_lose(self):
         return self.hidden_cells < 0
+
+    def make_move(self, x, y):
+        pass

@@ -50,5 +50,16 @@ class testLoseSituation(unittest.TestCase):
         observed_value = game.is_lose()
         self.assertEqual(expected_value, observed_value)
 
+class testMakeMove(unittest.TestCase):
+    def testMoveOneReveal(self):
+        random.seed(0xDEADBEEF)
+        game = Game(5, 5, 5, testing=True)
+        game.create_board(5, 5, 5, rand_func=random.random)
+        expected_value = 24
+        game.make_move(3, 0)
+        observed_value = game.hidden_cells
+        self.assertEqual(expected_value, observed_value)
+
+
 if __name__ == "__main__":
     unittest.main()
