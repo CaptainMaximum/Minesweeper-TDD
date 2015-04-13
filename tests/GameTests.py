@@ -97,6 +97,12 @@ class testParseMove(unittest.TestCase):
         observed_value = game.parse_move("\t3 3  ")
         self.assertEqual(expected_value, observed_value)
 
+    def testInvalidInputToFewArguments(self):
+        game = Game(5, 5, 5, testing=True)
+        expected_value = None
+        observed_value = game.parse_move("3")
+        self.assertEqual(expected_value, observed_value)
+
 
 
 if __name__ == "__main__":
