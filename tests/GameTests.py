@@ -22,5 +22,12 @@ class testWinSituation(unittest.TestCase):
         observed_value = game.is_win()
         self.assertEqual(expected_value, observed_value)
 
+    def testWin(self):
+        game = Game(5, 5, 5, testing=True)
+        expected_value = True
+        game.hidden_cells = 1
+        observed_value = game.is_win()
+        self.assertEqual(expected_value, observed_value)
+
 if __name__ == "__main__":
     unittest.main()
