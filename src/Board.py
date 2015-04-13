@@ -41,6 +41,7 @@ class Board:
             y >= self.y_dimension or self.trackboard[y][x]:
             return self.to_pick
         self.trackboard[y][x] = True
+        self.to_pick -= 1
         if self.board[y][x] == -1:
             return -1
         if self.board[y][x] == 0:
