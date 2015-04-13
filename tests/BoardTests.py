@@ -83,6 +83,13 @@ class testRevealLocation(unittest.TestCase):
         observed_board = test_board.trackboard
         self.assertEqual(expected_board, observed_board)
 
+class testRevealLocationCounter(unittest.TestCase):
+    def testNoCellRevealCounter(self):
+        expected_value = 25
+        test_board = Board(5, 5)
+        observed_value = test_board.to_pick
+        self.assertEqual(expected_value, observed_value)
+
 class testSumSurrounding(unittest.TestCase):
     def testLoneCell(self):
         expected_board = [[1,1,1],[1,0,1],[1,1,1]]
@@ -139,6 +146,6 @@ class testToString(unittest.TestCase):
         test_board.reveal_location(4,0)
         observed_board = str(test_board)
         self.assertEqual(expected_board, observed_board)
-        
+
 if __name__ == "__main__":
     unittest.main()
