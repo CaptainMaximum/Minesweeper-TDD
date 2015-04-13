@@ -60,7 +60,10 @@ class Board:
             board_string += "\n%d: |" % i
             for j in range(0, self.x_dimension):
                 if self.trackboard[i][j]:
-                    board_string += str(self.board[i][j])
+                    if self.board[i][j] == 0:
+                        board_string += " "
+                    else:
+                        board_string += str(self.board[i][j])
                 else:
                     board_string += "_"
                 board_string += "|"
