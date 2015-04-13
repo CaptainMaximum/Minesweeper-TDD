@@ -25,5 +25,6 @@ class Game:
         self.hidden_cells = self.board.reveal_location(x, y)
 
     def parse_move(self, move_string):
+        move_string = move_string.strip("\n\r\t ")
         split_input = re.split("\s+", move_string)
         return (int(split_input[0]), int(split_input[1]))
