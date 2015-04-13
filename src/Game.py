@@ -1,4 +1,6 @@
 from Board import Board
+from Exceptions import InvalidBoardException
+
 import random
 import re
 
@@ -8,6 +10,8 @@ class Game:
         self.x_dimension = x
         self.y_dimension = y
         self.total_bombs = bombs
+        if bombs >= self.hidden_cells:
+            raise InvalidBoardException(self.hidden_cells, bombs)
         if not testing:
             self.create_board(x, y, bombs)
 
