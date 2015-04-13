@@ -22,3 +22,6 @@ class Game:
 
     def make_move(self, x, y):
         self.hidden_cells = self.board.reveal_location(x, y)
+
+    def parse_move(self, move_string):
+        pass
