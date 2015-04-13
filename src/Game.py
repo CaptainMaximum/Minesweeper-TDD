@@ -18,4 +18,4 @@ class Game:
         return 0 <= self.hidden_cells <= self.total_bombs 
 
     def is_lose(self):
-        return False
+        return self.hidden_cells < 0
