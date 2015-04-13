@@ -10,5 +10,6 @@ class Game:
         if not testing:
             self.create_board(x, y, bombs)
 
-    def create_board(self, x, y, bombs, rand=random.random):
-        self.board = Board(5,5)
+    def create_board(self, x, y, bombs, rand_func=random.random):
+        self.board = Board(x, y)
+        self.board.scatter_bombs(bombs, rand=rand_func)
