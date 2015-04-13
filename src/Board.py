@@ -65,6 +65,8 @@ class Board:
                 if self.trackboard[i][j]:
                     if self.board[i][j] == 0:
                         board_string += " "
+                    elif self.board[i][j] == -1:
+                        board_string += "*"
                     else:
                         board_string += str(self.board[i][j])
                 else:
