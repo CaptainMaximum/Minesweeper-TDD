@@ -31,6 +31,10 @@ class Game:
             return None
         else:
             try:
-                return (int(split_input[0]), int(split_input[1]))
+                coords = (int(split_input[0]), int(split_input[1]))
+                if (coords[0] >= 0 and coords[0] < self.x_dimension and
+                    coords[1] >= 0 and coords[1] < self.y_dimension):
+                    return coords
             except ValueError:
                 return None
+        return None
