@@ -11,6 +11,7 @@ class Board:
     def __init__(self, x, y):
         self.x_dimension = x
         self.y_dimension = y
+        self.to_pick = x * y
         self.board = self.create_empty_board(x, y)
         # trackboard keeps track of what cells have been revealed so far
         self.trackboard = self.create_empty_board(x, y, value=False)
@@ -38,10 +39,10 @@ class Board:
     def reveal_location(self, x, y):
         if x < 0 or x >= self.x_dimension or y < 0 or   \
             y >= self.y_dimension or self.trackboard[y][x]:
-            return
+            return self.to_pick
         self.trackboard[y][x] = True
         if self.board[y][x] == -1:
-            return
+            return -1
         if self.board[y][x] == 0:
             self.reveal_location(x-1, y)
             self.reveal_location(x+1, y)
@@ -51,6 +52,7 @@ class Board:
             self.reveal_location(x, y+1)
             self.reveal_location(x+1, y-1)
             self.reveal_location(x-1, y+1)
+        return self.to_pick
 
     def __str__(self):
         board_string = "   "
