@@ -30,4 +30,7 @@ class Game:
         if len(split_input) != 2:
             return None
         else:
-            return (int(split_input[0]), int(split_input[1]))
+            try:
+                return (int(split_input[0]), int(split_input[1]))
+            except ValueError:
+                return None
