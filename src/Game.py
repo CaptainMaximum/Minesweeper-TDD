@@ -13,3 +13,6 @@ class Game:
     def create_board(self, x, y, bombs, rand_func=random.random):
         self.board = Board(x, y)
         self.board.scatter_bombs(bombs, rand=rand_func)
+
+    def is_win(self):
+        pass
