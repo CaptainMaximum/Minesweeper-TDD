@@ -3,11 +3,13 @@ import random
 from src.Board import Board
 
 class testCreateEmptyBoard(unittest.TestCase):
+    # Tests a board with dimensions that would be expected in a normal game
     def testNormalDimensions(self):
         expected_board = [[0] *10] *10
         observed_board = Board.create_empty_board(10, 10)
         self.assertEqual(expected_board, observed_board)
 
+    # Tests a board that is much smaller than would be expected in a normal game
     def testSmallDimensions(self):
         expected_board = [[0]]
         observed_board = Board.create_empty_board(1, 1)

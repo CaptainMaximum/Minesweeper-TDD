@@ -1,6 +1,6 @@
 import sys
-from src.Game import Game
-from src.Exceptions import InvalidBoardException
+from Game import Game
+from Exceptions import InvalidBoardException
 
 def get_board_params(args=sys.argv):
     if len(args) != 4:
@@ -16,6 +16,9 @@ def get_board_params(args=sys.argv):
 
 if __name__ == "__main__":
     x, y, bombs = get_board_params()
+    if not any([x, y, bombs]):
+        print "Usage: python GameRunner.py <x-dimension> <y-dimension> <# of bombs>"
+        sys.exit(-1)
     try:
         game = Game(x, y, bombs)
     except InvalidBoardException as e:
