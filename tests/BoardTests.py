@@ -135,8 +135,8 @@ class testSumSurrounding(unittest.TestCase):
     def testCollidingSums(self):
         expected_board = [[0, 2, 0], [1, 2, 1], [0, 0, 0]]
         test_board = Board(3,3)
-        test_board.sum_surrounding(0,0)
-        test_board.sum_surrounding(0,2)
+        test_board.sum_surrounding(0, 0)
+        test_board.sum_surrounding(2, 0)
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
 
