@@ -61,9 +61,9 @@ class Board:
     def __str__(self):
         board_string = "   "
         for i in range(0, self.x_dimension):
-            board_string += " %d" % i
+            board_string += " %d" % (i % 10)
         for i in range(0, self.y_dimension):
-            board_string += "\n%d: |" % i
+            board_string += "\n%d: |" % (i % 10)
             for j in range(0, self.x_dimension):
                 if self.trackboard[i][j]:
                     if self.board[i][j] == 0:
