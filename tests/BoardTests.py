@@ -104,7 +104,7 @@ class testRevealLocationCounter(unittest.TestCase):
         expected_value = 24
         test_board = Board(5, 5)
         test_board.scatter_bombs(5, rand=random.random)
-        observed_value = test_board.reveal_location(3,0)
+        observed_value = test_board.reveal_location(2, 0)
         self.assertEqual(expected_value, observed_value)
 
     def testMulitCellRevealCounter(self):
@@ -112,7 +112,7 @@ class testRevealLocationCounter(unittest.TestCase):
         expected_value = 19
         test_board = Board(5, 5)
         test_board.scatter_bombs(5, rand=random.random)
-        observed_value = test_board.reveal_location(4,0)
+        observed_value = test_board.reveal_location(0, 4)
         self.assertEqual(expected_value, observed_value)
 
     def testBombReveal(self):
@@ -120,7 +120,7 @@ class testRevealLocationCounter(unittest.TestCase):
         expected_value = -1
         test_board = Board(5, 5)
         test_board.scatter_bombs(5, rand=random.random)
-        observed_value = test_board.reveal_location(2, 0)
+        observed_value = test_board.reveal_location(0, 2)
         self.assertEqual(expected_value, observed_value)
 
 
