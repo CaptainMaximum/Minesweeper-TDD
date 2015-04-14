@@ -20,12 +20,12 @@ class Board:
         for i in range(-1, 2):
             if (x + i >= 0 and x + i < self.x_dimension):
                 for k in range(-1, 2):
-                    if (y + k >= 0 and y + k < self.y_dimension and self.board[x+i][y+k] != -1):
+                    if (y + k >= 0 and y + k < self.y_dimension and self.board[y+k][x+i] != -1):
                         if not (i == 0 and k == 0):
-                            self.board[x+i][y+k] += 1
+                            self.board[y+k][x+i] += 1
 
     def place_bomb(self, x, y):
-        self.board[x][y] = -1
+        self.board[y][x] = -1
         self.sum_surrounding(x,y)
 
     def scatter_bombs(self, quantity, rand=random.random):
