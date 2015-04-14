@@ -155,7 +155,7 @@ class testToString(unittest.TestCase):
     def testOneReveal(self):
         random.seed(0xDEADBEEF)
         expected_board = "    0 1 2 3 4\n" +  \
-                         "0: |_|_|_|1|_|\n" + \
+                         "0: |_|_|1|_|_|\n" + \
                          "1: |_|_|_|_|_|\n" + \
                          "2: |_|_|_|_|_|\n" + \
                          "3: |_|_|_|_|_|\n" + \
@@ -163,7 +163,7 @@ class testToString(unittest.TestCase):
 
         test_board = Board(5,5)
         test_board.scatter_bombs(5, rand=random.random)
-        test_board.reveal_location(3, 0)
+        test_board.reveal_location(2, 0)
         observed_board = str(test_board)
         self.assertEqual(expected_board, observed_board)
 
