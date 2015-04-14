@@ -64,7 +64,7 @@ class testMakeMove(unittest.TestCase):
         game = Game(5, 5, 5, testing=True)
         game.create_board(5, 5, 5, rand_func=random.random)
         expected_value = 24
-        game.make_move(3, 0)
+        game.make_move(0, 3)
         observed_value = game.hidden_cells
         self.assertEqual(expected_value, observed_value)
 
@@ -73,7 +73,7 @@ class testMakeMove(unittest.TestCase):
         game = Game(5, 5, 5, testing=True)
         game.create_board(5, 5, 5, rand_func=random.random)
         expected_value = 19
-        game.make_move(4, 0)
+        game.make_move(0, 4)
         observed_value = game.hidden_cells
         self.assertEqual(expected_value, observed_value)
 
@@ -82,7 +82,7 @@ class testMakeMove(unittest.TestCase):
         game = Game(5, 5, 5, testing=True)
         game.create_board(5, 5, 5, rand_func=random.random)
         expected_value = -1
-        game.make_move(2, 0)
+        game.make_move(0, 2)
         observed_value = game.hidden_cells
         self.assertEqual(expected_value, observed_value)
 
