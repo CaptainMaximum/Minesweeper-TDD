@@ -36,6 +36,13 @@ class testPlaceBomb(unittest.TestCase):
         observed_board = test_board.board
         self.assertEqual(expected_board, observed_board)
 
+    def testPlaceBombDifferentDimensionBoard(self):
+        expected_board = [[0, 1, -1], [0, 1, 1]]
+        test_board = Board(3, 2)
+        test_board.place_bomb(2, 0)
+        observed_board = test_board.board
+        self.assertEqual(expected_board, observed_board)
+
 class testScatterBombs(unittest.TestCase):
     def testNormalScatter(self):
         # Fake out the random number generator
