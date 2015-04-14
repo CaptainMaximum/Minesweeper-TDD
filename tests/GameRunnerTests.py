@@ -1,6 +1,8 @@
 import unittest
 from src.GameRunner import get_board_params
 
+# These tests ensure that user input on the command line will be correct
+# They test the function get_board_params
 class testGetBoardParams(unittest.TestCase):
     def testGetBoardParamsValidInput(self):
         expected_value = (5, 5, 5)
