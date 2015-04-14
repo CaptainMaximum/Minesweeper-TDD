@@ -1,5 +1,5 @@
 # CommandSweeper
-#### Developed by Joseph Hagner
+#### Developed by Joey Hagner
 ## About
 This application is a simple command line-based version of the popular game Minesweeper.  It was developed as a class project for CS1699 (Software Testing) at the University of Pittsburgh.  The purpose of this project is to demonstrate principles of Test Driven Development (TDD).
 
