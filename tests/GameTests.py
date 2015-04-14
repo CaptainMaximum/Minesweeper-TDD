@@ -96,9 +96,9 @@ class testMakeMove(unittest.TestCase):
         observed_value = game.hidden_cells
         self.assertEqual(expected_value, observed_value)
 
-# These tests test user input to ensure that it is valid (user input should
-# match the regular expression "\s+[0-9]+\s+[0-9]+\s+", where \s is any 
-# whitespace character)
+# These tests ensure that user input is valid (user input should match the
+# regular expression "\s+[0-9]+\s+[0-9]+\s+", where \s is any whitespace
+# character)
 class testParseMove(unittest.TestCase):
     def testValidInput(self):
         game = Game(5, 5, 5, testing=True)
@@ -158,7 +158,6 @@ class testRun(unittest.TestCase):
         expected_value = False
         observed_value = game.run()
         self.assertEqual(expected_value, observed_value)
-
-
+        
 if __name__ == "__main__":
     unittest.main()
