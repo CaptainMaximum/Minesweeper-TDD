@@ -32,7 +32,7 @@ class Board:
         while quantity > 0:
             place_x = int(rand() * self.x_dimension)
             place_y = int(rand() * self.y_dimension)
-            if self.board[place_x][place_y] != -1:
+            if self.board[place_y][place_x] != -1:
                 self.place_bomb(place_x, place_y)
                 quantity -= 1
 
