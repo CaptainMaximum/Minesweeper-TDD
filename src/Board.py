@@ -16,6 +16,8 @@ class Board:
         # trackboard keeps track of what cells have been revealed so far
         self.trackboard = self.create_empty_board(x, y, value=False)
 
+    # sum_surrounding increments the value in any cell adjacent to a bomb
+    # by one, assuming there isn't a bomb in the cell already
     def sum_surrounding(self, x, y):
         for i in range(-1, 2):
             if (x + i >= 0 and x + i < self.x_dimension):
@@ -45,6 +47,7 @@ class Board:
         if self.board[y][x] == -1:
             return -1
         if self.board[y][x] == 0:
+            # Recursive calls to the current function
             self.reveal_location(x-1, y)
             self.reveal_location(x+1, y)
             self.reveal_location(x-1, y-1)
