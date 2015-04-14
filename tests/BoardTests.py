@@ -22,7 +22,7 @@ class testCreateEmptyBoard(unittest.TestCase):
 
 class testPlaceBomb(unittest.TestCase):
     def testPlaceBomb(self):
-        expected_board = [[1, -1], [1, 1]]
+        expected_board = [[1, 1], [-1, 1]]
         test_board = Board(2,2)
         test_board.place_bomb(0, 1)
         observed_board = test_board.board
